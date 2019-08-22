@@ -1,51 +1,45 @@
-<div class="container">
+<div class="container">    
+    <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+        <div class="panel panel-info" >
+                <div class="panel-heading">
+                    <div class="panel-title">Sign In</div>
+                </div>     
 
-    <div class="panel panel-info" >
-                    <div class="panel-heading">
-                        <div class="panel-title">Sign In</div>
-                        <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">Forgot password?</a></div>
-                    </div>
+                <div style="padding-top:30px" class="panel-body" >
 
-                    <div style="padding-top:30px" class="panel-body" >
-
-                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
-
-                        <form #f="ngForm" (ngSubmit)="onClickMe(f)" >
-
-                            <div style="margin-bottom: 25px" class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                <input name="first" ngModel required #first="ngModel" value="username">
-                                <!----div *ngIf="signInForm.submitted && !username.valid">
-                                <label class="validation-message">This field is required.</label>
-                                </div-->
-                            </div>
-                            <div style="margin-bottom: 25px" class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                <input input name="last" ngModel value="password">
-                                <!----div *ngIf="signInForm.submitted && password.errors">
-                                        <label *ngIf="password.errors.required" class="validation-message">This field is required.</label>
-                                        <label *ngIf="password.errors.minlength" class="validation-message">Enter atleast 4 characters.</label>
-                                </div--->
-                            </div>
-
-
-
-
-                                <div style="margin-top:10px" class="form-group">
-                                    <!-- Button -->
-
-                                    <div class="col-sm-12 controls">
-                                     <button type="submit" (click)="onClickMe()" class="btn btn-success" value = "Login"></button>
-                                     {{clickMessage}}
-
-
-                                    </div>
-                                </div>
-
-                            </form>
-
-
+                    <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+                        
+                    <form #f="ngForm" (ngSubmit)="onClickMe(f)" role="form">
+                                 
+                        <div style="margin-bottom: 25px" class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input name="first"  (keyup)="onKey($event)" ngModel  #first="ngModel"  value="username" placeholder="Username " required> 
+                                                                
                         </div>
-                    </div>
+                       
+                        <!----div style="margin-bottom: 25px" class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            <input name="email" (keyup)="onKey($event)" ngModel #email="ngModel"  value="email"  placeholder="Email" required>
+                        </div>
+                        <p>{{values}}</p> 
+                            
+                        <div style="margin-bottom: 25px" class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            <input name="pwd" (keyup)="onKey($event)" type="password" ngModel value="password"  placeholder="password" required>
+                        </div>
+                         <p>{{values}}</p---> 
 
-      </div>
+                        
+                                
+                            <div style="margin-top:10px" class="form-group">
+                                <!-- Button -->
+                                <button id="submit" (click)="onClickMe()" class="btn btn-info"><i class="icon-hand-right"></i> Sign In</button>
+                                {{clickMessage}}
+                               
+                            </div> 
+                            <p>{{values}}</p>  
+                        </form>     
+                    </div>                     
+                </div>  
+            </div>
+        </div>

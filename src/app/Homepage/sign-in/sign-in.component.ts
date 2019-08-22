@@ -6,6 +6,7 @@ import {NgForm} from '@angular/forms';
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.css']
 })
+
 export class SignInComponent  {
 
  // showSucessMessage: boolean;
@@ -21,8 +22,15 @@ export class SignInComponent  {
 
         this.clickMessage = 'username can not be empty';
       }
-      else {
-        if(!f.value.last){
+      else{
+      console.log(f.value.email);
+      if
+       ( !f.value.email ) {
+
+        this.clickMessage = 'Email can not be empty';
+      }
+     else {
+        if(!f.value.pwd){
           this.clickMessage = 'password can not be empty';
         }
         else{
@@ -34,5 +42,6 @@ export class SignInComponent  {
 
   //this.showSucessMessage = true;
   //setTimeout(()=> this.showSucessMessage = false, 4000);
-}
+    }
+  }
 }
